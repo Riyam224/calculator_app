@@ -9,8 +9,8 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   // todo vars
-  int playerOne = 0;
-  int playerTwo = 0;
+  int numberOne = 0;
+  int numberTwo = 0;
   double res = 0;
 
   @override
@@ -69,7 +69,7 @@ class _HomeViewState extends State<HomeView> {
                         // todo adding
                         onPressed: () {
                           setState(() {
-                            res = (playerOne.toDouble() + playerTwo.toDouble());
+                            res = (numberOne.toDouble() + numberTwo.toDouble());
                           });
                         },
                         child: const Text(
@@ -83,7 +83,7 @@ class _HomeViewState extends State<HomeView> {
                         // todo sub
                         onPressed: () {
                           setState(() {
-                            res = (playerOne.toDouble() - playerTwo.toDouble());
+                            res = (numberOne.toDouble() - numberTwo.toDouble());
                           });
                         },
                         child: const Text(
@@ -97,7 +97,7 @@ class _HomeViewState extends State<HomeView> {
                       ElevatedButton(
                         onPressed: () {
                           setState(() {
-                            res = (playerOne.toDouble() * playerTwo.toDouble());
+                            res = (numberOne.toDouble() * numberTwo.toDouble());
                           });
                         },
                         child: const Text(
@@ -111,7 +111,7 @@ class _HomeViewState extends State<HomeView> {
                       ElevatedButton(
                         onPressed: () {
                           setState(() {
-                            res = (playerOne / playerTwo);
+                            res = (numberOne / numberTwo);
                           });
                         },
                         child: const Text(
@@ -131,7 +131,7 @@ class _HomeViewState extends State<HomeView> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
-                      'player 1',
+                      'number 1',
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -139,7 +139,7 @@ class _HomeViewState extends State<HomeView> {
                       ),
                     ),
                     Text(
-                      'player 2',
+                      'number 2',
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -166,7 +166,7 @@ class _HomeViewState extends State<HomeView> {
                         ElevatedButton(
                           onPressed: () {
                             setState(() {
-                              playerOne++;
+                              numberOne++;
                             });
                           },
                           child: const Text(
@@ -177,7 +177,7 @@ class _HomeViewState extends State<HomeView> {
                           ),
                         ),
                         Text(
-                          '$playerOne',
+                          '$numberOne',
                           style: const TextStyle(
                             fontSize: 50,
                           ),
@@ -185,7 +185,7 @@ class _HomeViewState extends State<HomeView> {
                         ElevatedButton(
                           onPressed: () {
                             setState(() {
-                              playerOne--;
+                              numberOne--;
                             });
                           },
                           child: const Text(
@@ -197,13 +197,13 @@ class _HomeViewState extends State<HomeView> {
                         ),
                       ],
                     ),
-                    // todo player two
+                    // todo number two
                     Row(
                       children: [
                         ElevatedButton(
                           onPressed: () {
                             setState(() {
-                              playerTwo++;
+                              numberTwo++;
                             });
                           },
                           child: const Text(
@@ -214,7 +214,7 @@ class _HomeViewState extends State<HomeView> {
                           ),
                         ),
                         Text(
-                          '$playerTwo',
+                          '$numberTwo',
                           style: const TextStyle(
                             fontSize: 50,
                           ),
@@ -222,7 +222,7 @@ class _HomeViewState extends State<HomeView> {
                         ElevatedButton(
                           onPressed: () {
                             setState(() {
-                              playerTwo--;
+                              numberTwo--;
                             });
                           },
                           child: const Text(
@@ -242,8 +242,8 @@ class _HomeViewState extends State<HomeView> {
                 ElevatedButton(
                   onPressed: () {
                     setState(() {
-                      playerOne = 0;
-                      playerTwo = 0;
+                      numberOne = 0;
+                      numberTwo = 0;
                     });
                   },
                   child: const Text(
