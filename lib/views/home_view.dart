@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  // todo vars
+  int playerOne = 0;
+  int playerTwo = 0;
+  double res = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -33,20 +43,14 @@ class HomeView extends StatelessWidget {
             ),
             child: Column(
               children: [
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Resault: ',
-                      style: TextStyle(
+                      'Result:  $res',
+                      style: const TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      '0',
-                      style: TextStyle(
-                        fontSize: 30,
                       ),
                     ),
                   ],
@@ -62,7 +66,12 @@ class HomeView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
-                        onPressed: () {},
+                        // todo adding
+                        onPressed: () {
+                          setState(() {
+                            res = (playerOne.toDouble() + playerTwo.toDouble());
+                          });
+                        },
                         child: const Text(
                           '+',
                           style: TextStyle(
@@ -71,7 +80,12 @@ class HomeView extends StatelessWidget {
                         ),
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        // todo sub
+                        onPressed: () {
+                          setState(() {
+                            res = (playerOne.toDouble() - playerTwo.toDouble());
+                          });
+                        },
                         child: const Text(
                           '-',
                           style: TextStyle(
@@ -79,8 +93,13 @@ class HomeView extends StatelessWidget {
                           ),
                         ),
                       ),
+                      // todo multiply
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            res = (playerOne.toDouble() * playerTwo.toDouble());
+                          });
+                        },
                         child: const Text(
                           '*',
                           style: TextStyle(
@@ -88,8 +107,13 @@ class HomeView extends StatelessWidget {
                           ),
                         ),
                       ),
+                      // todo division
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            res = (playerOne / playerTwo);
+                          });
+                        },
                         child: const Text(
                           '/',
                           style: TextStyle(
@@ -136,25 +160,34 @@ class HomeView extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
+                    // todo player one
                     Row(
                       children: [
                         ElevatedButton(
-                          onPressed: () {},
-                          child: Text(
+                          onPressed: () {
+                            setState(() {
+                              playerOne++;
+                            });
+                          },
+                          child: const Text(
                             '+',
                             style: TextStyle(
                               fontSize: 30,
                             ),
                           ),
                         ),
-                        const Text(
-                          '0',
-                          style: TextStyle(
+                        Text(
+                          '$playerOne',
+                          style: const TextStyle(
                             fontSize: 50,
                           ),
                         ),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              playerOne--;
+                            });
+                          },
                           child: const Text(
                             '-',
                             style: TextStyle(
@@ -164,10 +197,15 @@ class HomeView extends StatelessWidget {
                         ),
                       ],
                     ),
+                    // todo player two
                     Row(
                       children: [
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              playerTwo++;
+                            });
+                          },
                           child: const Text(
                             '+',
                             style: TextStyle(
@@ -175,14 +213,18 @@ class HomeView extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const Text(
-                          '0',
-                          style: TextStyle(
+                        Text(
+                          '$playerTwo',
+                          style: const TextStyle(
                             fontSize: 50,
                           ),
                         ),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              playerTwo--;
+                            });
+                          },
                           child: const Text(
                             '-',
                             style: TextStyle(
@@ -194,6 +236,25 @@ class HomeView extends StatelessWidget {
                     ),
                   ],
                 ),
+                const SizedBox(
+                  height: 30,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      playerOne = 0;
+                      playerTwo = 0;
+                    });
+                  },
+                  child: const Text(
+                    'Reset',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 48, 12, 54),
+                    ),
+                  ),
+                )
               ],
             ),
           ),
